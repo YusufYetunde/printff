@@ -16,9 +16,13 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
+<<<<<<< HEAD
 
 	va_start(list, format);
 
+=======
+	va_start(list, format);
+>>>>>>> 9ae363173a55ed9e77680aea29d7d80a2a2a98e3
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
@@ -37,13 +41,18 @@ int _printf(const char *format, ...)
 			precision = get_precision(format, &i, list);
 			size = get_size(format, &i);
 			++i;
+<<<<<<< HEAD
 			printed = print_argument(format, &i, list, buffer,
 				flags, width, precision, size);
+=======
+			printed = print_argument(format, &i, list, buffer,flags, width, precision, size);
+>>>>>>> 9ae363173a55ed9e77680aea29d7d80a2a2a98e3
 			if (printed == -1)
 				return (-1);
 			printed_chars += printed;
 		}
 	}
+<<<<<<< HEAD
 
 	print_buffer(buffer, &buff_ind);
 
@@ -52,6 +61,13 @@ int _printf(const char *format, ...)
 	return (printed_chars);
 }
 
+=======
+	print_buffer(buffer, &buff_ind);
+	va_end(list);
+	return (printed_chars);
+}
+
+>>>>>>> 9ae363173a55ed9e77680aea29d7d80a2a2a98e3
 /**
  * print_buffer - Prints the contents of the buffer if it exist
  * @buffer: Array of chars
@@ -61,6 +77,9 @@ void print_buffer(char buffer[], int *buff_ind)
 {
 	if (*buff_ind > 0)
 		write(1, &buffer[0], *buff_ind);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9ae363173a55ed9e77680aea29d7d80a2a2a98e3
 	*buff_ind = 0;
 }
